@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  //div=JSON.stringify(data)
+  // div=JSON.stringify(agent)
+  table(class='table')
+    tr
+      -for(var i in data[0])
+        td=(i)
+    tr
+    each row in data
+      tr
+        -for(var i in row)
+          td=row[i]

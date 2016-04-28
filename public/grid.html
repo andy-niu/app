@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="msapplication-tap-highlight" content="no">
+    <title>Dress List - mzmalls.com</title>
+    <link href="Content/mian.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header class="ui-hearer animated">
+        <div class="top-fixed container">
+            <div class="row clearfix">
+                <div class="col-25 ">
+                    <a href="#"><i class="icon-menu-1"></i></a>
+                </div>
+                <div class="col-50 text-center"><a href="#">LOGO</a></div>
+                <div class="col-25 text-right ui-cart">
+                    <a href="#"><i class="icon-bag"></i><i class="cart-num">0</i></a>
+                </div>
+            </div>
+            <div class="modal-container animation">
+                <div class="ui-nav">
+                    <div class="search">
+                        <form action="#">
+                            <input type="search" placeholder="Search" class="search-text" />
+                        </form>
+                    </div>
+                    <div class="iscroll">
+                        <div class="clearfix">
+                            <ul class="recommond-tool font-14">
+                                <li><a href="#"><i class="icon-home-outline"></i> &nbsp; Home <i class="icon-right-open-big pull-right"></i></a></li>
+                                <li><a href="#"><i class="icon-user-1"></i> &nbsp; My Account<i class="icon-right-open-big pull-right "></i></a> </li>
+                                <li><a href="#"><i class="icon-heart-1"></i> &nbsp; My Favorites<i class="icon-right-open-big pull-right "></i></a> </li>
+                                <li><a href="#"><i class="icon-history"></i> &nbsp; My Browsing<i class="icon-right-open-big pull-right "></i></a> </li>
+                            </ul>
+                            <ul class="category-tool font-14">
+                                <li class="cate-title"><i class="icon-left-open-big"></i> <label><a href="#">11111111</a></label></li>
+                                <li>
+                                    <a href="#">Women Dress <i class="icon-right-open-big pull-right"></i></a>
+                                    <ul class="category-list font-14">
+                                        <li><a href="#">category child 1<i class="icon-right-open-big pull-right"></i></a></li>
+                                        <li><a href="#">category child 2<i class="icon-right-open-big pull-right"></i></a></li>
+                                        <li><a href="#">category child 3<i class="icon-right-open-big pull-right"></i></a></li>
+                                        <li><a href="#">category child 3<i class="icon-right-open-big pull-right"></i></a></li>
+                                        <li><a href="#">category child 3<i class="icon-right-open-big pull-right"></i></a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Tops <i class="icon-right-open-big pull-right"></i></a> </li>
+                                <li><a href="#">Bottmos <i class="icon-right-open-big pull-right"></i></a> </li>
+                                <li><a href="#">Category 3 <i class="icon-right-open-big pull-right"></i></a> </li>
+                                <li><a href="#">Category 4 <i class="icon-right-open-big pull-right"></i></a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="ui-body">
+        <div class="ui-filer">
+            <div class="row no-gutter text-center">
+                <div class="col-33"><a href="#">1</a></div>
+                <div class="col-33"><a href="#">1</a></div>
+                <div class="col-33"><a href="#">1</a></div>
+            </div>
+        </div>
+        <div class="pro-grid row container">
+
+        </div>
+    </section>
+    <footer class="ui-footer font-12">
+        <div class="text-center">FOLLOW SiteName</div>
+        <div class="text-center ui-shares font-20">
+            <a href="#"><i class="icon-facebook-rect"></i>  </a>
+            <a href="#"><i class="icon-twitter-bird"></i>   </a>
+            <a href="#"><i class="icon-youtube"></i>        </a>
+            <a href="#"><i class="icon-vimeo-rect"></i>     </a>
+            <a href="#"><i class="icon-googleplus-rect"></i></a>
+            <a href="#"><i class="icon-linkedin-rect"></i>  </a>
+        </div>
+        <div class="text-center"> <a href="#">Home</a> | <a href="#">VIP Center</a> | <a href="#">Contact Us</a> | <a href="#">Sitemap</a> | <a href="#">PC Site</a></div>
+        <div class="text-center">© 2010-2016 SiteName.com</div>
+    </footer>
+    <script src="Scripts/app.js"></script>
+    <script src="Scripts/template.js"></script>
+    <script id="template" type="text/html">
+        {{each list as item i}}
+        <a href="{{item.Href}}" class="col-50 ui-items">
+            <dl>
+                <dt class="img-width">
+                    <img src="images/product.png" imgsrc="{{item.Src}}" alt="{{item.Title}}" class="img-width img-load" />
+                    <span class="ui-discount"><t>{{item.Discount}}</t><br>%OFF</span>
+                    <span class="ui-favorites"><i class="icon-heart-empty font-20"></i></span>
+                </dt>
+                <dd class="font-12">
+                    <div class="ui-items-title">{{item.Title}}</div>
+                    <div class="ui-items-price ui-price text-center">USD ${{item.Price}}</div>
+                </dd>
+            </dl>
+        </a>
+        {{/each}}
+    </script>   
+</body>
+</html>
