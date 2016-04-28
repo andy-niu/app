@@ -17,7 +17,6 @@ router.get('/', function(req, res, next) {
           accept : req.headers["accept"],
           userAgent : req.headers['user-agent'],
     };
-    
     var isCrawler =function(userAgeent) {
         var array = [ "Baiduspider","Googlebot","360Spider","Sosospider", "sogou spider"];
         var bool = false;
@@ -29,7 +28,7 @@ router.get('/', function(req, res, next) {
         }
         return bool;
     }
-    
+    console.log(report.base.getClientIp(req))
     function  isMobile(userAgent) {
       return userAgent.indexOf("Mobile") == -1 ? false: true;
     }
@@ -45,7 +44,7 @@ router.get('/', function(req, res, next) {
     try {
       
         report.Browser= info.name;
-        report.ip=c.ip;
+        report.IP= c.ip;
         report.Custom= tiket;
         report.InputType='';
         report.IsCrawler= isCrawler(c.userAgent);
@@ -54,6 +53,7 @@ router.get('/', function(req, res, next) {
         report.Version = info.version;
         report.Platform ="Os:" +info.os+";layout:"+info.layout+";";
         report.IsMobileDevice = isMobile(c.userAgent);
+        //console.log(report);
         
     } catch (error) {
         console.log(error);

@@ -34,7 +34,37 @@ pool.getConnection(function(err, connection) {
   report.selectAll = function name(callback) {
         connection.query('SELECT * FROM Log', function(err, rows, fields) {
             if (err) throw err;
-             callback(err,rows);     
+            callback(err,rows);     
+       });
+  }
+  
+  report.select = function name(where,pageIndex,pageSize,callback) {
+	  
+	pageIndex=!pageIndex?1:pageIndex==0?1:pageIndex;
+	pageSize=!pageSize?10:pageSize==0?10:pageSize;
+	
+	report.GetCount(where,function(err,row){
+		console.log(row)
+		var count = row[0].Counts;
+		var total = count % pageSize > 0 ? (count / pageSize) + 1 : count / pageSize;
+		var thisPageIndex = (pageIndex - 1) * pageSize;
+		if(where!=""){
+			where+=(" where " + strWhere);
+		}
+		var sql='SELECT * FROM Log '+where+" ORDER BY id desc limit "+ thisPageIndex + "," + pageSize;
+		console.log(sql);
+		connection.query(sql, function(err, rows, fields) {
+			if (err) throw err;		
+			callback(err,rows);   	
+		});
+			
+	});
+  }
+  
+  report.GetCount = function name(where,callback) {
+        connection.query('SELECT count(0)Counts FROM Log', function(err, rows, fields) {
+            if (err) throw err;
+            callback(err,rows);     
        });
   }
   

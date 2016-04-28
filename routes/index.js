@@ -14,7 +14,8 @@ router.get('/', function(req, res, next) {
             accept : req.headers["accept"],
             userAgent : req.headers['user-agent'],
           };
-  report.selectAll(function(err,data) {
+          
+  report.select("",1,10,function(err,data) {
      res.render('index', { title: 'Express', data : data,err:err ,agent : clientInfo });
   })
 });
