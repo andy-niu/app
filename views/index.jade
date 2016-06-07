@@ -4,7 +4,7 @@ block content
   h1= title
   p Welcome to #{title}
   //div=JSON.stringify(data)
-  div=JSON.stringify(agent)
+  //div=JSON.stringify(agent)
   table(class='table')
     tr
       -for(var i in data[0])
@@ -14,3 +14,9 @@ block content
       tr
         -for(var i in row)
           td=row[i]
+  div 共#{pageInfo.pageTotal}页  第#{pageInfo.pageIndex}页 
+
+  
+  ul(class='pagination')
+   -for(var i=1; i <= 10;i++)
+      <li !{i==pageInfo.pageIndex?'class="active"':''}><a href="?p=#{i}">!{i}</a></li>

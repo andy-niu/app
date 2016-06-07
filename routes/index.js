@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
-var report = require('../models/report.js');
+var report = require('../models/report');
 
 
 /* GET home page. */
@@ -14,9 +14,10 @@ router.get('/', function(req, res, next) {
             accept : req.headers["accept"],
             userAgent : req.headers['user-agent'],
           };
-          
-  report.select("",1,10,function(err,data) {
-     res.render('index', { title: 'Express', data : data,err:err ,agent : clientInfo });
+  var pageIndex=1, pageSize=10;
+  pageIndex=req.query.p?req.query.p:pageIndex;
+  report.select("",pageIndex,pageSize,function(err,data,pageTotal) {
+     res.render('index', { title: 'mzmalls.com', data : data,err:err,pageInfo:{pageIndex:pageIndex,pageTotal:pageTotal} ,agent : clientInfo });
   })
 });
 
