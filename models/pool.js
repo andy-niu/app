@@ -1,21 +1,3 @@
-//var mysql = require('mysql');
-
-// var pool = mysql.createPool({
-//     host     : '104.224.154.206',
-//     user     : 'root',
-//     password : 'password@1'
-// });
-// exports.do = function (sql, callback){
-//     this.getConnection(function (err, connection){
-//         connection.query(sql, function (){
-//             callback.apply(connection, arguments);
-//             connection.release();
-//         });
-//     })
-// }.bind(pool)
-
-// module.exports = pool;
-
 //http://blog.cn-face.com/nodejs-mysql-zui-jian-dan-de-lian-jie-chi/
 var mysql = require('mysql');  
 //var config = require('./Config.js').config;  
